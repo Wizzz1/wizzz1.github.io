@@ -14,7 +14,7 @@ body {
 }
 
 main {
-  width: 500px;
+  width: 600px;
   height: max-content;
   min-height: 300px;
   background-color: #fff;
@@ -30,6 +30,7 @@ main form {
   justify-content: space-between;
   display: flex;
 }
+
 main form input,
 main form button {
   padding: 10px;
@@ -38,6 +39,11 @@ main form button {
   background: transparent;
   font-size: 16px;
   color: #333;
+}
+
+main form input {
+  flex-grow: 1;
+  margin: 10px 20px;
 }
 
 main form i {
