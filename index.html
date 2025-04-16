@@ -14,34 +14,93 @@
     <header>
       <h1>Weather App</h1>
     </header>
+
     <main>
-      <section id="search-section">
-        <form action="">
-          <input
-            type="text"
-            id="city-input"
-            placeholder="Enter city name"
-            aria-label="City Name"
+      <form action="">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter city name"
+          aria-label="City Name"
+        />
+        <button id="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <section class="result">
+        <figure class="name">
+          <figcaption>Hong Kong</figcaption>
+          <img src="https://flagsapi.com/HK/flat/64.png" alt="" />
+        </figure>
+        <figure class="temperature">
+          <figcaption>Temperature</figcaption>
+          <img
+            id="temperature-icon"
+            src="https://openweathermap.org/img/wn/10d@2x.png"
+            alt="Temperature Icon"
           />
-          <button id="search-button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
+          <figcaption>
+            <span> 31</span>
+            <sup>o</sup>
+            <span>C</span>
+          </figcaption>
+        </figure>
+        <!-- provided by the API -->
+        <p class="description">Overcast clouds</p>
+
+        <ul>
+          <li>
+            <strong>Clouds</strong>
+            <i class="fa-solid fa-cloud"></i>
+            <span id="clouds">70%</span>
+          </li>
+          <li>
+            <strong>Humidity</strong>
+            <i class="fa-solid fa-droplet"></i>
+            <span id="humidity"> 70%</span>
+          </li>
+          <li>
+            <strong>Wind Speed</strong>
+            <i class="fa-solid fa-wind"></i>
+            <span id="wind-speed"> 10 km/h</span>
+          </li>
+          <li>
+            <strong>Pressure</strong>
+            <i class="fa-solid fa-gauge"></i>
+            <span id="pressure"> 1012 hPa</span>
+          </li>
+          <li>
+            <strong>Visibility</strong>
+            <i class="fa-solid fa-eye"></i>
+            <span id="visibility"> 10 km</span>
+          </li>
+          <li>
+            <strong>Sunrise</strong>
+            <i class="fa-solid fa-sun"></i>
+            <span id="sunrise"> 6:00 AM</span>
+          </li>
+        </ul>
       </section>
 
-      <section id="weather-display">
-        <h2>Weather Information</h2>
-        <div id="weather-data">
-          <!-- Weather data will be dynamically inserted here -->
-        </div>
-      </section>
-
-      <section id="dashboard-link">
-        <a href="dashboard.html" id="view-dashboard"
-          >View Analytics Dashboard</a
-        >
-      </section>
+      <!-- <section id="current-weather">
+          <h2>Current Weather</h2>
+          <div id="weather-info">
+            <p id="city-name"></p>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <img id="weather-icon" src="" alt="Weather Icon" />
+          </div>
+          <div id="error-message" class="hidden">
+            <p>City not found. Please try again.</p>
+          </div>
+        </section> -->
     </main>
+
+    <section id="dashboard-link">
+      <a href="dashboard.html" id="view-dashboard">View Analytics Dashboard</a>
+    </section>
+
     <footer>
       <p>&copy; 2025 Weather App</p>
     </footer>
