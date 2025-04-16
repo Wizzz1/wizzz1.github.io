@@ -3,9 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Hello World</h1>
+    <header>
+      <h1>Weather App</h1>
+    </header>
+    <main>
+      <section id="search-section">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter city name"
+          aria-label="City Name"
+        />
+        <button id="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </section>
+
+      <section id="weather-display">
+        <h2>Weather Information</h2>
+        <div id="weather-data">
+          <!-- Weather data will be dynamically inserted here -->
+        </div>
+      </section>
+      <section id="dashboard-link">
+        <a href="dashboard.html" id="view-dashboard"
+          >View Analytics Dashboard</a
+        >
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Weather App</p>
+    </footer>
+    <script src="app.js"></script>
   </body>
 </html>
