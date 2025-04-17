@@ -47,7 +47,7 @@ const searchWeather = () => {
         humidity.innerText = data.main.humidity + "%"; // Display the humidity
         wind.innerText = data.wind.speed + " m/s"; // Display the wind speed
         pressure.innerText = data.main.pressure + " hPa"; // Display the pressure
-        visibility.innerText = data.sys.visibility / 1000 + " km"; // Display the visibility
+        visibility.innerText = data.visibility / 1000 + " km"; // Display the visibility
         sunrise.innerText = new Date(data.sys.sunrise * 1000)
           .toLocaleTimeString("en-US", {
             hour: "2-digit",
