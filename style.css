@@ -56,13 +56,14 @@ main .result {
 }
 
 main .result .name {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  padding: 20px 0;
 }
 
 main .result .name img {
@@ -81,6 +82,7 @@ main .temperature figcaption {
 
 main .description {
   padding: 20px;
+  font-size: 30px;
 }
 
 main ul {
