@@ -36,22 +36,40 @@ const searchWeather = () => {
         city.querySelector("figcaption").innerText = data.name; // Display the city name
         city.querySelector("img").src =
           "https://flagsapi.com/" + data.sys.country + "/flat/64.png"; // Display the city name
+        temperature.querySelector("img").src =
+          "https://openweathermap.org/img/wn/" +
+          data.weather[0].icon +
+          "@2x.png";
+        temperature.querySelector("figcaption span").innerText =
+          data.main.temp.toFixed(1); // Display the temperature
+        description.innerText = data.weather[0].description; // Display the weather description
+        clouds.innerText = data.clouds.all + "%"; // Display the cloudiness
+        humidity.innerText = data.main.humidity + "%"; // Display the humidity
+        wind.innerText = data.wind.speed + " m/s"; // Display the wind speed
+        pressure.innerText = data.main.pressure + " hPa"; // Display the pressure
+        visibility.innerText = data.sys.visibility / 1000 + " km"; // Display the visibility
+        sunrise.innerText = new Date(data.sys.sunrise * 1000)
+          .toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })
+          .toString(); // Display the sunrise time
+      } else {
+        handleError(); // Call the handleError function if the city is not found
       }
-      temperature.querySelector("img").src =
-        "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
-      temperature.querySelector("figcaption span").innerText =
-        data.main.temp.toFixed(1); // Display the temperature
-      description.innerText = data.weather[0].description; // Display the weather description
-      clouds.innerText = data.clouds.all + "%"; // Display the cloudiness
-      humidity.innerText = data.main.humidity + "%"; // Display the humidity
-      wind.innerText = data.wind.speed + " m/s"; // Display the wind speed
-      pressure.innerText = data.main.pressure + " hPa"; // Display the pressure
-      visibility.innerText = data.sys.visibility / 1000 + " km"; // Display the visibility
-      sunrise.innerText = new Date(data.sys.sunrise * 1000)
-        .toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })
-        .toString(); // Display the sunrise time
     });
+
+  cityInput.value = ""; // Clear the input field
 };
+
+const handleError = () => {
+  errorMessage.style.display = "block"; // Show the error message
+  errorMessage.textContent = "Country not found"; // Display the error message
+};
+
+const initApp = () => {
+  cityInput.value = "hong kong"; // Clear the input field
+  searchWeather(); // Call the searchWeather function to fetch the weather data
+};
+
+initApp(); // Call the initApp function to initialize the app
