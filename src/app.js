@@ -15,6 +15,16 @@ let lastUpdated = document.getElementById("lastUpdated");
 let errorMessage = document.getElementsByClassName("error-message")[0];
 let form = document.querySelector("form");
 
+window.addEventListener('load', () => {
+  const [nav] = performance.getEntriesByType('navigation');
+  if (nav) {
+    gtag('event', 'page_load', {
+      event_category: 'Performance',
+      value: Math.round(nav.loadEventEnd - nav.startTime)
+    });
+  }
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault(); /* prevent the web refresh and from submitting */
   if (cityInput.value == "") {
@@ -30,6 +40,15 @@ form.addEventListener("submit", (event) => {
     searchWeather();
   }
 });
+
+document.getElementById('view-dashboard').addEventListener('click', () => {
+  gtag('event', 'view_dashboard_click', {
+    event_category: 'WeatherApp',
+    event_label: 'Dashboard Link'
+  });
+});
+
+
 
 let id = "a009f74addab8c8cb112ac3dc8b9b232"; // Your OpenWeatherMap API key
 let url =
@@ -79,6 +98,12 @@ const searchWeather = () => {
 };
 
 const handleError = () => {
+
+  gtag('event', 'search_error', {
+    event_category: 'WeatherApp',
+    event_label: cityInput.value.trim() || 'empty_input'
+  });
+
   errorMessage.style.display = "block"; // Show the error message
   errorMessage.textContent = "City / Country not found"; // Display the error message
 };
