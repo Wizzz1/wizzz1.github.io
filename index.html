@@ -12,27 +12,31 @@
   </head>
   <body>
     <header>
-      <h1>Weather App</h1>
+      <h1>Today's Weather</h1>
     </header>
 
     <main>
+      <div>
+        <p id="todayDate">Today Date</p>
+      </div>
+
       <form action="">
         <input type="text" id="cityInput" placeholder="Enter city name" />
         <button id="search-button">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
-      <div id="error-message" style="color: red; display: none">
+      <p class="last-updated">Last updated: <span id="lastUpdated"></span></p>
+      <div class="error-message" style="color: red; display: none">
         Please enter a city name
       </div>
 
       <section class="result">
-        <figure class="name" id="city">
+        <figure class="cityname" id="city">
           <figcaption>Hong Kong</figcaption>
           <img src="https://flagsapi.com/HK/flat/64.png" alt="" />
         </figure>
         <figure class="temperature" id="temperature">
-          <figcaption>Temperature</figcaption>
           <img
             id="temperature-icon"
             src="https://openweathermap.org/img/wn/10d@2x.png"
@@ -43,6 +47,7 @@
             <sup>o</sup>
             <span>C</span>
           </figcaption>
+          <span id="feelsLike">Feels like 31°C</span>
         </figure>
         <!-- provided by the API -->
         <p class="description">Overcast clouds</p>

@@ -1,7 +1,9 @@
 // Main JavaScript file for the weather app
+let todayDate = document.getElementById("todayDate"); // Get the current date
 let cityInput = document.getElementById("cityInput");
 let city = document.getElementById("city");
 let temperature = document.getElementById("temperature");
+let feelsLike = document.getElementById("feelsLike");
 let description = document.querySelector(".description");
 let clouds = document.getElementById("clouds");
 let humidity = document.getElementById("humidity");
@@ -9,7 +11,8 @@ let wind = document.getElementById("windSpeed");
 let pressure = document.getElementById("pressure");
 let visibility = document.getElementById("visibility");
 let sunrise = document.getElementById("sunrise");
-let errorMessage = document.getElementById("error-message");
+let lastUpdated = document.getElementById("lastUpdated");
+let errorMessage = document.getElementsByClassName("error-message")[0];
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
@@ -42,6 +45,8 @@ const searchWeather = () => {
           "@2x.png";
         temperature.querySelector("figcaption span").innerText =
           data.main.temp.toFixed(1); // Display the temperature
+        feelsLike.innerText =
+          "Feels like " + data.main.feels_like.toFixed(1) + "°C"; // Display the feels like temperature
         description.innerText = data.weather[0].description; // Display the weather description
         clouds.innerText = data.clouds.all + "%"; // Display the cloudiness
         humidity.innerText = data.main.humidity + "%"; // Display the humidity
@@ -54,6 +59,11 @@ const searchWeather = () => {
             minute: "2-digit",
           })
           .toString(); // Display the sunrise time
+        lastUpdated.innerText = new Date().toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+        }); // Display the last updated time
+        errorMessage.style.display = "none"; // Hide the error message
       } else {
         handleError(); // Call the handleError function if the city is not found
       }
@@ -64,12 +74,18 @@ const searchWeather = () => {
 
 const handleError = () => {
   errorMessage.style.display = "block"; // Show the error message
-  errorMessage.textContent = "Country not found"; // Display the error message
+  errorMessage.textContent = "City / Country not found"; // Display the error message
 };
 
 const initApp = () => {
   cityInput.value = "hong kong"; // Clear the input field
   searchWeather(); // Call the searchWeather function to fetch the weather data
+  todayDate.innerText = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }); // Display the current date
 };
 
 initApp(); // Call the initApp function to initialize the app
