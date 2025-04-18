@@ -21,6 +21,12 @@ form.addEventListener("submit", (event) => {
     errorMessage.style.display = "block"; // Show the error message
     errorMessage.textContent = "Please enter a city name";
   } else {
+     // ← send a custom GA event for this search
+     gtag('event', 'city_search', {
+      event_category: 'WeatherApp',
+      event_label: cityInput.value,
+      value: 1
+    });
     searchWeather();
   }
 });
