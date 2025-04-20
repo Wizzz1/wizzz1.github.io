@@ -41,12 +41,12 @@ form.addEventListener("submit", (event) => {
   }
 })
 
-document.getElementById("view-dashboard").addEventListener("click", () => {
+/* document.getElementById("view-dashboard").addEventListener("click", () => {
   gtag("event", "view_dashboard_click", {
     event_category: "WeatherApp",
     event_label: "Dashboard Link",
   })
-})
+}) */
 
 let id = "a009f74addab8c8cb112ac3dc8b9b232" // Your OpenWeatherMap API key
 let url =
