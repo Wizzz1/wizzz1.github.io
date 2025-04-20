@@ -48,13 +48,10 @@ document.getElementById("view-dashboard").addEventListener("click", () => {
   })
 })
 
-// Import dotenv to load environment variables (only for Node.js or local development)
-if (typeof process !== "undefined") {
-  require("dotenv").config()
-}
-
-let apiKey = process.env.API_KEY // Fallback for browsers
-let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${apiKey}` // Base URL for the OpenWeatherMap API
+let id = "a009f74addab8c8cb112ac3dc8b9b232" // Your OpenWeatherMap API key
+let url =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id // Base URL for the OpenWeatherMap API
+// API URL with the city name and API key
 
 const searchWeather = () => {
   fetch(url + "&q=" + cityInput.value)
